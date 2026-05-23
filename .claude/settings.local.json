@@ -2,7 +2,20 @@
   "permissions": {
     "allow": [
       "Bash(python -c \"import sys,json; nb=json.load\\(sys.stdin\\); [print\\(f'Cell {i}:', c.get\\('outputs',''\\)\\) for i,c in enumerate\\(nb['cells']\\)]\")",
-      "Bash(python -c ' *)"
+      "Bash(python -c ' *)",
+      "Bash(python -c \"import json; nb = json.load\\(open\\('notebook.ipynb', encoding='utf-8'\\)\\); [print\\(f'Cell {i}: {c[\\\\\"cell_type\\\\\"]} | {str\\(c[\\\\\"source\\\\\"]\\)[:200]}'\\) for i, c in enumerate\\(nb['cells']\\)]\")",
+      "Bash(python -c \"import json; nb = json.load\\(open\\('notebook.ipynb', encoding='utf-8'\\)\\); print\\(f'Total cells: {len\\(nb[\\\\\"cells\\\\\"]\\)}'\\); [print\\(f'\\\\n--- Cell {i} \\({c[\\\\\"cell_type\\\\\"]}\\) ---\\\\n{chr\\(10\\).join\\(c[\\\\\"source\\\\\"][:500] if isinstance\\(c[\\\\\"source\\\\\"], list\\) else [c[\\\\\"source\\\\\"][:500]]\\)}'\\) for i, c in enumerate\\(nb['cells']\\)]\")",
+      "Bash(python -c \"import PyPDF2; r = PyPDF2.PdfReader\\('Pastona/Aula 2 - Base Models_2026.pdf'\\); [print\\(f'--- PAGE {i+1} ---\\\\n{r.pages[i].extract_text\\(\\)[:3000]}'\\) for i in range\\(min\\(5, len\\(r.pages\\)\\)\\)]\")",
+      "Bash(python -c \"import pdfplumber; pdf = pdfplumber.open\\('Pastona/Aula 2 - Base Models_2026.pdf'\\); [print\\(f'--- PAGE {i+1} ---\\\\n{pdf.pages[i].extract_text\\(\\)[:3000]}'\\) for i in range\\(min\\(8, len\\(pdf.pages\\)\\)\\)]\")",
+      "Bash(python -c \"import fitz; doc = fitz.open\\('Pastona/Aula 2 - Base Models_2026.pdf'\\); [print\\(f'--- PAGE {i+1} ---\\\\n{doc[i].get_text\\(\\)}'\\) for i in range\\(min\\(10, doc.page_count\\)\\)]\")",
+      "Bash(pip install *)",
+      "Bash(python -c \"import fitz; doc = fitz.open\\('Pastona/Aula 2 - Base Models_2026.pdf'\\); [print\\(f'--- PAGE {i+1} ---\\\\n{doc[i].get_text\\(\\)}'\\) for i in range\\(min\\(12, doc.page_count\\)\\)]\")",
+      "Bash(python -c \"import json; nb=json.load\\(open\\('notebook.ipynb','r',encoding='utf-8'\\)\\); print\\(f'Total cells: {len\\(nb[\\\\\"cells\\\\\"]\\)}'\\); [print\\(f'--- Cell {i} \\({c[\\\\\"cell_type\\\\\"]}\\) ---'\\); print\\(''.join\\(c['source']\\)[:500]\\) for i,c in enumerate\\(nb['cells']\\)]\")",
+      "Bash(python add_cells.py)",
+      "Bash(jupyter nbconvert *)",
+      "Bash(python -m jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=120 notebook.ipynb --output notebook_test_run.ipynb)",
+      "Bash(del add_cells.py)",
+      "Bash(Remove-Item \"c:\\\\Users\\\\lucaslaurente-ieg\\\\OneDrive - Instituto Germinare\\\\Aliens\\\\previsao-aliens\\\\add_cells.py\" -Force)"
     ]
   }
 }
