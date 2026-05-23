@@ -15,7 +15,9 @@
       "Bash(jupyter nbconvert *)",
       "Bash(python -m jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=120 notebook.ipynb --output notebook_test_run.ipynb)",
       "Bash(del add_cells.py)",
-      "Bash(Remove-Item \"c:\\\\Users\\\\lucaslaurente-ieg\\\\OneDrive - Instituto Germinare\\\\Aliens\\\\previsao-aliens\\\\add_cells.py\" -Force)"
+      "Bash(Remove-Item \"c:\\\\Users\\\\lucaslaurente-ieg\\\\OneDrive - Instituto Germinare\\\\Aliens\\\\previsao-aliens\\\\add_cells.py\" -Force)",
+      "Bash(python -c \"import json; data = open\\('notebook.ipynb', encoding='utf-8'\\).read\\(\\); nb = json.loads\\(data\\); print\\(f'Cells: {len\\(nb[\\\\\"cells\\\\\"]\\)}'\\); [print\\(f'Cell {i}: {c[\\\\\"cell_type\\\\\"]} - {str\\(c.get\\(\\\\\"source\\\\\",\\\\\"\\\\\"\\)\\)[:80]}'\\) for i, c in enumerate\\(nb['cells']\\)]\")",
+      "Bash(python -c *)"
     ]
   }
 }
