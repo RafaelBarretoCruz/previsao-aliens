@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import sys,json; nb=json.load\\(sys.stdin\\); [print\\(f'Cell {i}:', c.get\\('outputs',''\\)\\) for i,c in enumerate\\(nb['cells']\\)]\")",
+      "Bash(python -c ' *)"
+    ]
+  }
+}
